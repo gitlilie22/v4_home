@@ -20,6 +20,18 @@
 <a id="nav_home" style=" background-color: rgb(131, 131, 131);">Home</a> <a href="D:\New folder\CD_Root\AutoPlay\Docs\+104+\New folder (4)\New folder/b32.html" id="nav_data">Data</a> <a id="nav_about">V4 Map</a>
   </div>
 
+
+
+    <div id="loading"><h1 style="    position: fixed;
+      top: 20%;
+      color: white;-webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));">Waiting</h1>
+      <div class="spinner"><span></span><span></span></div>
+  </div>
+
+ 
+
+
+
    <div class="section1cover" id="section1cover">
 
   <video class="videov4" autoplay muted style="height: 100%;width:100% ;">
@@ -30,8 +42,6 @@
     Your browser does not support the video tag.
   </video>
 </div>
-
-<p class="pwelcome">Welcome to our website. We hope you enjoy it.</p>
 
 <div id="nav-bullets" class="nav-bullets">
   <a href="#section1cover" class="bullet1" id="bullet1"><div id="tooltip1" class="tooltip">V4 Video</div></a>
@@ -172,9 +182,7 @@
     <iframe src="https://mo015.github.io/jos/Layout.html" name="iframe_a" height="500px" width="40%" title="Iframe Example"></iframe> </div>
 
    </div>
-<canvas id="canvas" >
-  Sorry, your browser does not support canvas.
-  </canvas>
+
 <style>
   .scroller{  
     top: 0;
@@ -196,6 +204,58 @@ body{height: 2150px; padding: 0%;margin: 0%; animation: blure 3s linear ;
 100%{background-color: aliceblue;opacity: 100%;
 
 }}
+#loading {
+        position: fixed;
+        width: 100%;    background: round;
+        height: 100%;    backdrop-filter: blur(11px);
+        display: flex;
+        align-items: center;background-color: #0000004a;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+
+    .spinner {
+        width: 150px;
+        height: 150px;box-shadow:1px 1px 20px 5px rgb(255, 68, 0),1px 1px 20px 10px rgba(253, 67, 0, 0.523),1px 1px 20px 20px rgba(253, 67, 0, 0.17);
+        border: 5px solid #ccc;
+        border-top-color: #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .spinner span:first-child{
+        width:100px;
+        height:100px;box-shadow:1px 1px 20px 5px rgb(255, 68, 0),1px 1px 20px 10px rgba(253, 67, 0, 0.523),1px 1px 20px 20px rgba(253, 67, 0, 0.17);
+        border: 5px solid #cccccc4f;
+        border-top-color: #3498db;    position: fixed;
+        margin: 21px;
+        border-radius: 50%;
+        animation: spin1 1s linear infinite;
+    } @keyframes spin1 {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+     .spinner span:last-child{
+        width:50px;
+        height:50px;box-shadow:1px 1px 20px 5px rgb(255, 68, 0),1px 1px 20px 10px rgba(253, 67, 0, 0.523),1px 1px 20px 20px rgba(253, 67, 0, 0.17);
+        border: 5px solid #cccccc4f;
+        border-top-color: #3498db;    position: fixed;
+        margin: 44px;
+        border-radius: 50%;
+        animation: spin1 1s linear infinite;
+    } @keyframes spin1 {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    #loading.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
 .section1cover{       z-index: 0;
     position: relative;
     height: 30%;
@@ -255,31 +315,6 @@ div ::-webkit-scrollbar-corner{background-color: #000000;}
 
 
 
-    .pwelcome{    width: 0px;    top: -4px;
-    height: max-content;
-    overflow: hidden;-webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
-    animation: control-width 4s 3s both normal infinite , blank 0.5s normal infinite;
-    position: relative;
-    white-space: nowrap;
-    border-right: black solid 2px;
-    box-shadow: 0px 20px 30px #9c07e954;
-    }
-    @keyframes control-width{
-      from {
-        width: 0;
-      }
-      to {
-        width:38%;
-      }
-    }
-    @keyframes blank{
-      from {
-        border-right-color: rgb(1, 15, 3);
-      }
-      to {
-        border-right-color: transparent;
-      }
-    }
    .ourwork_section{
     height: 31.5%;
     position: relative;
@@ -320,13 +355,13 @@ div ::-webkit-scrollbar-corner{background-color: #000000;}
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    animation-name: slideUp5 normal all initial ;
-    animation-duration: 2s;
+    animation-name: slideUp5  ;
+    animation-duration: 2s;transition: 2s;
     visibility: visible;}
     @keyframes slideUp5 {
   0% {
     opacity: 0%;
-    transform: translateY(70%);
+    transform: translateY(-70%);
   } 
   100% {
     opacity: 100%;
@@ -920,15 +955,7 @@ background-image: url(https://gitlilie22.github.io/v4_home/esri4.png);
   text-decoration: none;
     color: white;
 }
-#canvas{width: 8%;
-    position: fixed;
-    z-index: 11111;
-    top: 2%;
-    left: 8%;
-}
-#canvas:hover{opacity: 50%;
-  width: 53%; top: 8%;
-} 
+
 </style>
 </body>
 <script>
@@ -975,7 +1002,7 @@ background-image: url(https://gitlilie22.github.io/v4_home/esri4.png);
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(4)').classList.remove("active");
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(5)').classList.add("active");
     var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(6)').classList.remove("active");
-   });
+   });      
 window.onscroll = function()
  { if (window.scrollY >150) {
     document.querySelector(".contactus_right").style.display='block';
@@ -985,7 +1012,7 @@ window.onscroll = function()
     document.querySelector(".contactus_left").style.display='block';
   }
   else{ document.querySelector(".contactus_left").style.display = "none";}
-  if (window.scrollY >1000) {
+  if (window.scrollY >900) {
     document.querySelector(".ourwork_section #ourwork_contenier a").style.display='flex';
   }
   else{ document.querySelector(".ourwork_section #ourwork_contenier a").style.display = "none";}
@@ -994,7 +1021,7 @@ window.onscroll = function()
   }
   else{ document.querySelector(".our_location iframe").style.display = "none";}
  
-  if (window.scrollY >1900) {
+  if (window.scrollY >1700) {
     document.querySelector(".service_box div .box1").style.opacity='100%';
     document.querySelector(".service_box div .box2").style.opacity='100%';
     document.querySelector(".service_box div .box3").style.opacity='100%';
@@ -1092,84 +1119,21 @@ window.onscroll = function()
    document.getElementById('bullet6').addEventListener('mouseout', function() {
     var expandedMenu4 = document.getElementById('tooltip6').style.display="none";
    });
-   const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-let radius = canvas.height / 2;
-ctx.translate(radius, radius);
-radius = radius * 0.90
-setInterval(drawClock, 1000);
+ 
+document.documentElement.style.pointerEvents = "none"; // يمنع التفاعل مع الصفحة
+    document.documentElement.style.overflow = "hidden"; // يمنع التمرير
 
-function drawClock() {
-  drawFace(ctx, radius);
-  drawNumbers(ctx, radius);
-  drawTime(ctx, radius);
-}
+    window.onload = function() {
+        setTimeout(() => {
+            document.getElementById("loading").classList.add("hidden"); // إخفاء اللودينغ
 
-function drawFace(ctx, radius) {
-  const grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
-  grad.addColorStop(0, '#333');
-  grad.addColorStop(0.5, 'white');
-  grad.addColorStop(1, '#333');
-  ctx.beginPath();
-  ctx.arc(0, 0, radius, 0, 2*Math.PI);
-  ctx.fillStyle = 'white';
-  ctx.fill();
-  ctx.strokeStyle = grad;
-  ctx.lineWidth = radius*0.1;
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
-  ctx.fillStyle = '#333';
-  ctx.fill();
-}
+            // تمكين الأكواد بعد انتهاء التحميل
+            document.documentElement.style.pointerEvents = "auto"; // استعادة التفاعل
+            document.documentElement.style.overflow = "auto"; // استعادة التمرير
 
-function drawNumbers(ctx, radius) {
-  ctx.font = radius*0.15 + "px arial";
-  ctx.textBaseline="middle";
-  ctx.textAlign="center";
-  for(let num = 1; num < 13; num++){
-    let ang = num * Math.PI / 6;
-    ctx.rotate(ang);
-    ctx.translate(0, -radius*0.85);
-    ctx.rotate(-ang);
-    ctx.fillText(num.toString(), 0, 0);
-    ctx.rotate(ang);
-    ctx.translate(0, radius*0.85);
-    ctx.rotate(-ang);
-  }
-}
-
-function drawTime(ctx, radius){
-    const now = new Date();
-    let hour = now.getHours();
-    let minute = now.getMinutes();
-    let second = now.getSeconds();
-    //hour
-    hour=hour%12;
-    hour=(hour*Math.PI/6)+
-    (minute*Math.PI/(6*60))+
-    (second*Math.PI/(360*60));
-    drawHand(ctx, hour, radius*0.5, radius*0.07);
-    //minute
-    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
-    drawHand(ctx, minute, radius*0.8, radius*0.07);
-    // second
-    second=(second*Math.PI/30);
-    drawHand(ctx, second, radius*0.9, radius*0.02);
-}
-
-function drawHand(ctx, pos, length, width) {
-    ctx.beginPath();
-    ctx.lineWidth = width;
-    ctx.lineCap = "round";
-    ctx.moveTo(0,0);
-    ctx.rotate(pos);
-    ctx.lineTo(0, -length);
-    ctx.stroke();
-    ctx.rotate(-pos);
-}
-
-
+            console.log("تم تحميل الصفحة بالكامل، جميع الأكواد مفعلة الآن.");
+        }, 118000); // تأخير 1 ثانية قبل تفعيل الأكواد
+    };
    let backbase= document.querySelector(".ourwork_cover");
     let imgarry=["1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg"];
     
@@ -1180,4 +1144,6 @@ setInterval(()=>{
 },4000);
 
 </script>
+
+
 <html>
