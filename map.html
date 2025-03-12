@@ -1,0 +1,282 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>Disable all view navigation | Sample | ArcGIS Maps SDK for JavaScript 4.31</title>
+<body>
+    <main>
+        <div id="viewDiv">
+            <div class="navbar">
+                <a href="#" class="icon" id="expanding-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 1V5C14 5.55228 13.5523 6 13 6H9C8.44772 6 8 5.55228 8 5V1C8 0.447715 8.44772 0 9 0L13 0C13.5523 0 14 0.447715 14 1Z" fill="#C0C9DB"></path>
+                            <path d="M14 9V13C14 13.5523 13.5523 14 13 14H9C8.44772 14 8 13.5523 8 13V9C8 8.44771 8.44772 8 9 8H13C13.5523 8 14 8.44771 14 9Z" fill="#C0C9DB"></path>
+                            <path d="M6 5V1C6 0.447715 5.55229 0 5 0L1 0C0.447716 0 0 0.447715 0 1V5C0 5.55228 0.447716 6 1 6H5C5.55229 6 6 5.55228 6 5Z" fill="#C0C9DB"></path>
+                            <path d="M6 9V13C6 13.5523 5.55229 14 5 14H1C0.447716 14 0 13.5523 0 13V9C0 8.44771 0.447716 8 1 8H5C5.55229 8 6 8.44771 6 9Z" fill="#C0C9DB"></path>
+                            </svg></a>
+            
+                <div class="expanded-menu" id="expanded-menu">
+                    <!-- قائمة العناصر الموسعة تأتي هنا -->
+                    <a href="#" style="color: #f2f2f2; text-decoration: none;">عنصر القائمة 1</a>
+                   <br> <a href="#"style="color: #f2f2f2; text-decoration: none;">عنصر القائمة 2</a>
+            <br><a href="#"style="color: #f2f2f2; text-decoration: none;">عنصر القائمة 3</a>
+                </div>
+            </div >   
+             <div id="navbar3">
+                <div style="display: flex;
+                flex-direction: row-reverse;
+                justify-content: center;
+                align-items: center;" class="title svelte-9kp18k active"><div class="hidden_filter svelte-9kp18k"><svg width="16" height="16" viewBox="0 0 16 16" style="
+    margin-left: 7px;
+" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 10L8 5L13 10" stroke="#C0C9DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    </div> Amenities</div>
+            </div>
+            <div id="nav"></div>
+            </div > 
+            <div class="loc">
+                <a href="#" class="icon2" id="expanding-loc">&#9650;</a>
+                <div class="loc-menu" id="loc-menu">
+                    <!-- قائمة العناصر الموسعة تأتي هنا -->
+                <a style="align-items: center; text-align: center;color: #f2f2f2; text-decoration: none;" href="C:/Users/pc/Documents/Downloads/b12.html">dsds</a>
+            <br><br><a style="align-items: center; text-align: center;color: #f2f2f2; text-decoration: none;" 
+            href="D:\كورسات\courses\New folder\New folder (2)\b32.html">hfhd</a>
+            
+                </div>
+            </div>
+            <button class="fullscreen" onclick="openFullscreen();"><i style='font-size:24px' class='fas'>&#xf31e;</i></button>
+           
+        </main>
+        
+</body>
+
+    <style>
+
+
+      html,
+      main{display: flex;
+padding: 0;
+margin: 0 auto;
+width: 100%;
+height: 100%;
+z-index: 0;
+position: relative;}
+      body {padding: 0;margin: 0; height: 100%;width: 100%;}
+      #viewDiv {
+        padding: 0;
+        margin: 0;position: fixed;
+        height: 100%;
+        width: 100%;
+      }.navbar {position: fixed;
+    background-color: #333;z-index: 112;
+    padding: 10px;
+    color: #fff;
+    text-align: center; width: 3%; right: 5%;bottom:5%;border-radius: 10px;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+#navbar3 {       position: absolute;
+    background-color: #333;
+    z-index: 2;
+    padding: 2px;
+    display: table;
+    color: #fff;cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    right: 12%;
+    width: 18%;
+    height: 0%;
+    bottom: 5%;    font-weight: bolder;
+
+}
+#nav{display: none;
+    background: #333333;
+    position: absolute;
+    width: 50%;
+    bottom: 3%;
+    height: 5%;
+    right: 12%;
+    border-radius: 10px;}
+.expanded-menu {
+    display: none;height: 11%;width: 11%;
+    bottom: 20%;position: fixed;z-index: 1;right: 10%;
+}
+.expanded {    position: absolute;
+    right: 0;
+    height: 155px;
+    bottom: calc(100% + 10px);
+    background: #272e35;
+    display: block;
+    border-radius: 20px;
+    width: 166px;
+    box-sizing: border-box;
+    padding: 20px;
+    z-index: 5}
+    
+    .loc {width: calc(10%);
+    height: calc(3%);
+    background-color: #333;
+    padding: 5px;
+    top: calc(10%);
+    left: 4%;
+    border-radius: 0.2cm;
+    color: #fff;
+    position: fixed;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    z-index: 2;
+        } 
+.fullscreen{width: calc(10%);
+    height: calc(3%);
+    background-color: #333;
+    padding: 5px;
+    top: 3%;
+    left: 2%;
+    border-radius: 0.2cm;
+    color: #fff;
+    position: fixed;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    z-index: 2;}
+        .icon2 {
+            color: #fff;
+            text-decoration: none;position: relative;padding-left: 60%;
+            font-size: 10px;z-index: 2;top: 20%;right: -15%;
+            cursor: pointer;
+        }
+  
+        
+        .loc-menu {width: calc(100%);
+    position: absolute;
+    z-index: 2;
+    left: 0;display: none;
+    background: #333333;
+    font-size: small;
+    text-align: center;
+        }
+        .esri-ui .esri-attribution {
+    opacity: 0%;
+    z-index: -1111;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}.esri-widget *, .esri-widget *:before, .esri-widget *:after {
+    box-sizing: inherit;
+    background: #19022f;    border-radius: 3px;
+
+}.esri-ui .esri-popup {
+    pointer-events: none;
+    position: absolute;inset: 95px 440px auto auto;
+    z-index: 1;
+    display: flex;opacity: 94%;
+    flex-flow: column nowrap;
+}.esri-widget {
+    box-sizing: border-box;
+    color: #02a8ea;
+    font-size: 14px;
+    font-family: "Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.3em;
+    background-color: #eb0f0f;
+    --esri-widget-padding-v: 12px;
+    --esri-widget-padding-h: 15px;
+    --esri-widget-padding: var(--esri-widget-padding-v) var(--esri-widget-padding-h);
+}.esri-widget__table tr:nth-child(odd) {border: solid rebeccapurple;
+}.esri-widget__table tr:nth-child(even) {
+    border: solid rebeccapurple;
+}.esri-view-height-less-than-medium .esri-popup__main-container {
+    max-height: 300px; border-radius: 3px;
+}
+    </style>
+<script>
+    var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else document.exitFullscreen /* Safari */
+    document.webkitExitFullscreen();}
+      document.getElementById('expanding-loc').addEventListener('click', function() {
+    if (document.getElementById('loc-menu').style.display === "block") {
+        document.getElementById('loc-menu').style.display = "none";
+
+    } else {
+        document.getElementById('loc-menu').style.display = "block";
+    }   
+   });
+document.getElementById('expanding-icon').addEventListener('click', function() {
+    var expandedMenu = document.getElementById('expanded-menu')
+    expandedMenu.classList.toggle('expanded');
+});
+document.getElementById('navbar3').addEventListener('click', function() {
+    if (navbar3.style.bottom == "5%") {
+        navbar3.style.bottom = "11%";
+        
+    } else {
+        navbar3.style.bottom = "5%";
+    } ; if (nav.style.display == "none") {
+        nav.style.display = "block";
+        nav.style.bottom = "5%";
+    } else {
+        nav.style.display = "none";
+    }
+
+   ;}) ;
+   
+</script>
+<link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/dark/main.css" />
+<script src="https://js.arcgis.com/4.31/"></script>
+
+    <script>
+      require(["esri/WebScene", "esri/views/SceneView"], (WebScene, SceneView) => {
+        const map = new WebScene({
+          portalItem: {
+            // autocasts as new PortalItem()
+            id: "021fc8c26fd8455a9a57063e1658136e"
+          }
+        });
+
+        const view = new SceneView({
+          container: "viewDiv",
+          map: map, navigation: {
+        mouseWheelZoomEnabled: false,
+        browserTouchPanEnabled: false
+      },
+          ui: {
+            components: ["attribution"]
+          },
+          constraints: {
+            
+      minZoom: 18,       // الحد الأدنى للتكبير (إذا لزم الأمر)
+        // الحد الأقصى للتكبير (إذا لزم الأمر)
+      rotationEnabled: false // تعطيل الدوران
+          },
+   
+        });
+        view.ui.components = ["attribution"]; // ترك فقط حقوق النشر أو يمكنك تعيينها كصفيف فارغ []
+        view.on("drag", function (event) {
+  event.stopPropagation(); // منع السحب
+});
+
+view.on("mouse-wheel", function (event) {
+  event.stopPropagation(); // منع التكبير باستخدام عجلة الماوس
+});
+
+view.on("double-click", function (event) {
+  event.stopPropagation(); // منع التكبير بالنقر المزدوج
+});
+
+view.on("key-down", function (event) {
+  event.stopPropagation(); // تعطيل التفاعل من لوحة المفاتيح
+});
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
