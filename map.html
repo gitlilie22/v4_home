@@ -48,21 +48,21 @@
   </div > 
 
           
-            <div id="nav"></div>
-            </div > 
-            <div class="loc">
-                <a href="#" class="icon2" id="expanding-loc">&#9650;</a>
-                <div class="loc-menu" id="loc-menu">
-                    <!-- قائمة العناصر الموسعة تأتي هنا -->
-                <a style="align-items: center; text-align: center;color: #f2f2f2; text-decoration: none;" href="C:/Users/pc/Documents/Downloads/b12.html">dsds</a>
-            <br><br><a style="align-items: center; text-align: center;color: #f2f2f2; text-decoration: none;" 
-            href="D:\كورسات\courses\New folder\New folder (2)\b32.html">hfhd</a>
-            
-                </div>
-            </div>
-            <button class="fullscreen" onclick="openFullscreen();"><i style='font-size:24px' class='fas'>&#xf31e;</i></button>
            
-        
+       
+           
+            <div class="mark mark-landmarks mark-khobar_new_sea_front_mob svelte-s67x8w clickable" style="cursor: pointer; position: fixed; inset: 365.127px auto auto 556.553px;width: 2.569px;height: 5.7456px;">
+            </div>
+            <div class="loc">
+               <a href="#" class="icon2" id="expanding-loc"><p>Map</p>&#9650;</a>
+               <div class="loc-menu" id="loc-menu">
+               <a style="align-items: center; text-align: center;color: #f2f2f2; text-decoration: none;margin-top: 8%;" href="http://v4.web1337.net/home.php">Go To Home</a>
+           <br>
+           
+               </div>
+           </div>
+           <button class="fullscreen" onclick="openFullscreen();"><i style='font-size:24px' class='fas'></i></button>
+
 </body>
 
     <style>
@@ -124,40 +124,48 @@
     padding: 20px;
     z-index: 5}
     
-    .loc {width: calc(10%);
-    height: calc(3%);
-    background-color: #333;
-    padding: 5px;
-    top: calc(10%);
-    left: 4%;
-    border-radius: 0.2cm;
-    color: #fff;
-    position: fixed;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    z-index: 2;
-        } 
-.fullscreen{    width: calc(4%);
-    height: calc(6%);
-    background-color: #333;
-    padding: 5px;
+    .fullscreen{width: calc(3%);
+    height: calc(5%);
+background-image:url(https://gitlilie22.github.io/v4_home/fullsc.png) ;    
+padding: 5px;
     top: 3%;
-    left: 4%;
-    border-radius: 0.2cm;
+    left: 2%;
+    border-radius: 0.2cm;    background-size: 100%;
     color: #fff;
     position: fixed;
     align-items: center;
     align-content: center;
     text-align: center;
     z-index: 2;}
-        .icon2 {
+    .loc {width: calc(10%);
+            height: calc(3%);
+            background-color: #333;
+            padding: 5px;
+            top: calc(10%);
+            left: 4%;
+            border-radius: 0.2cm;
             color: #fff;
-            text-decoration: none;position: relative;padding-left: 60%;
-            font-size: 10px;z-index: 2;top: 20%;right: -15%;
-            cursor: pointer;
+            position: fixed;
+            align-items: center;
+            align-content: center;
+            text-align: center;
+            z-index: 2;
+                } 
+ 
+                .icon2 {
+                  color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    z-index: 4;
+    margin-top: -16%;
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
         }
-  
         
         .loc-menu {width: calc(100%);
     position: absolute;
@@ -167,6 +175,22 @@
     font-size: small;
     text-align: center;
         }
+        .expandedloc {    margin-left: 0%;
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+    height: 140%;
+    top: 23px;
+    width: 99%;    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    border-bottom-left-radius: 0.5cm;
+    border-bottom-right-radius: 0.5cm;
+        }
+     
         .esri-ui .esri-attribution {
     opacity: 0%;
     z-index: -1111;
@@ -206,15 +230,22 @@
     text-align: center; width: 3%; right: 5%;bottom:5%;
 }
 @media(max-width:700px){
-  .fullscreen {width: calc(8%);
+  .fullscreen {width: calc(10%);
     height: calc(6%);
-}.navbar .icon {
+}.loc{
+    width: calc(24%);    top: calc(13%);
+}
+    .topnav {    top: 1%;
+    position: absolute;
+    right: 0.5%;
+    border-radius: 0.2cm;
+    overflow: hidden;
+    width: 94%;
+    background-color: #333;}.navbar .icon {
     color: #ffffff; 
     text-decoration: none;
     font-size: 20px;position: relative;
     cursor: pointer;left: -22%;top:-5%;z-index: 25;
-}.loc{
-    width: calc(24%);    top: calc(13%);
 }
     .topnav {    top: 1%;
     position: absolute;
@@ -228,7 +259,12 @@
 <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/dark/main.css" />
 <script src="https://js.arcgis.com/4.31/"></script>
 
-    <script>
+    <script> var elem = document.documentElement;
+      function openFullscreen() {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else document.exitFullscreen /* Safari */
+          document.webkitExitFullscreen();}
       require(["esri/WebScene", "esri/views/SceneView"], (WebScene, SceneView) => {
         const map = new WebScene({
           portalItem: {
@@ -273,8 +309,19 @@ view.on("key-down", function (event) {
 document.getElementById('expanding-icon').addEventListener('click', function() {
 var expandedMenu = document.getElementById('expanded-menu')
 expandedMenu.classList.toggle('expanded');
-var expandedMenu2 = document.querySelector('.icon2').style.display = "flex";
-document.querySelector('.navbar');
+
+});document.getElementById('expanding-loc').addEventListener('click', function() {
+    var expandedMenu = document.getElementById('loc-menu');
+    expandedMenu.classList.toggle('expandedloc');
+}); 
+  document.getElementById('expanding-loc').addEventListener('click', function() {
+if (document.getElementById('loc-menu').style.display === "flex") {
+    document.getElementById('loc-menu').style.display = "none";
+
+} else {
+    document.getElementById('loc-menu').style.display = "flex";
+
+}   
 });
       });
     </script>
