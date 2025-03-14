@@ -295,37 +295,43 @@ padding: 5px;
   event.stopPropagation(); // منع السحب
 });
 
-   function disableMapInteraction() {
-        view.on("drag", (event) => {
-            event.stopPropagation(); // تعطيل السحب
+view.on("mouse-wheel", function (event) {
+  event.stopPropagation(); // منع التكبير باستخدام عجلة الماوس
+});
+
+view.on("double-click", function (event) {
+  event.stopPropagation(); // منع التكبير بالنقر المزدوج
+});
+
+view.on("key-down", function (event) {
+  event.stopPropagation(); // تعطيل التفاعل من لوحة المفاتيح
+});
+if (window.innerWidth <= 700) {
+        view.on("drag", function (event) {
+            event.stopPropagation();
         });
 
-        view.on("mouse-wheel", (event) => {
-            event.stopPropagation(); // تعطيل التكبير بعجلة الفأرة
+        view.on("mouse-wheel", function (event) {
+            event.stopPropagation();
         });
 
-        view.on("double-click", (event) => {
-            event.stopPropagation(); // تعطيل التكبير بالنقر المزدوج
+        view.on("double-click", function (event) {
+            event.stopPropagation();
         });
-
         view.on("pointer-move", (event) => {
             event.stopPropagation(); // منع تحريك الخريطة بالإصبع أثناء اللمس
         });
-
+        view.on("key-down", function (event) {
+            event.stopPropagation();
+        });
         view.on("pointer-down", (event) => {
             if (event.pointers.length > 1) {
                 event.stopPropagation(); // منع التكبير بإصبعين (Pinch Zoom)
             }
-        });
-
-        view.on("pointer-up", (event) => {
+            view.on("pointer-up", (event) => {
             // السماح بالنقر فقط
         });
-    }
-
-    // تطبيق الإعدادات إذا كان الجهاز محمولًا
-    if (window.innerWidth <= 700) {
-        disableMapInteraction();
+        });
     }
 document.getElementById('expanding-icon').addEventListener('click', function() {
 var expandedMenu = document.getElementById('expanded-menu')
