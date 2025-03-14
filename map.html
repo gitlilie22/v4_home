@@ -59,7 +59,7 @@
             <div class="loc">
                <a href="#" class="icon2" id="expanding-loc"><p>Map</p>&#9650;</a>
                <div class="loc-menu" id="loc-menu">
-               <a style="align-items: center; text-align: center;color: #f2f2f2; text-decoration: none;margin-top: 8%;" href="http://v4.web1337.net/home.php">Go To Home</a>
+               <a style="align-items: center; text-align: center;color: #f2f2f2; text-decoration: none;margin-top: 15%;" href="http://v4.web1337.net/home.php">Go To Home</a>
            <br>
            
                </div>
@@ -207,9 +207,10 @@ padding: 5px;
     position: absolute;
     text-align: center;
     z-index: 2;
-    height: 140%;
-    top: 23px;
-    width: 99%;    display: flex;
+    height: 151%;
+    top: 83%;
+    width: 99%;
+    display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
@@ -301,7 +302,7 @@ padding: 5px;
 <script src="https://js.arcgis.com/4.31/"></script>
 
     <script>
-     var elem = document.documentElement;
+    var elem = document.documentElement;
       function openFullscreen() {
         if (elem.requestFullscreen) {
           elem.requestFullscreen();
@@ -332,7 +333,7 @@ padding: 5px;
    
         });
 
-        if (window.innerWidth <= 700) {  
+        if (window.innerWidth <= 1000) {  
         view.zoom = 17; // تكبير أكثر عند فتح الخريطة على الهاتف
 
         // ضبط الموقع الافتراضي على منطقة معينة (اختياري)
@@ -381,6 +382,20 @@ if (window.innerWidth <= 700) {
         });
      
       }
+      if (window.innerWidth <= 700) {
+    view.when(() => {
+        map.layers.forEach(layer => {
+            layer.visible = false; // إخفاء جميع الطبقات عند التحميل
+        });
+
+        setTimeout(() => {
+            map.layers.forEach(layer => {
+                layer.visible = true; // تفعيل الطبقات بعد 3 ثوانٍ فقط عند الحاجة
+            });
+        }, 3000);
+    });
+}
+
     function checkOrientation() {
     if (window.innerHeight > window.innerWidth) {
         document.getElementById("rotate-message").style.display = "flex"; // عرض رسالة الدوران
@@ -411,7 +426,10 @@ if (document.getElementById('loc-menu').style.display === "flex") {
     document.getElementById('loc-menu').style.display = "flex";
 
 }   
-});
+}); view.qualityProfile = "low";  // تقليل جودة الرسومات
+view.environment.lighting.directShadowsEnabled = false;  // تعطيل الظلال
+view.environment.lighting.ambientOcclusionEnabled = false; // تعطيل تأثيرات الإضاءة
+
       });
     </script>
   </head>
