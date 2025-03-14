@@ -306,24 +306,26 @@ view.on("double-click", function (event) {
 view.on("key-down", function (event) {
   event.stopPropagation(); // تعطيل التفاعل من لوحة المفاتيح
 });
-if (window.innerWidth <= 700) {
+    if (window.innerWidth <= 700) {
         view.on("drag", function (event) {
-            event.stopPropagation();
+            event.stopPropagation(); // تعطيل السحب
         });
 
         view.on("mouse-wheel", function (event) {
-            event.stopPropagation();
+            event.stopPropagation(); // تعطيل التكبير باستخدام العجلة
         });
 
+        view.on("double-click", function (event) {
+            event.stopPropagation(); // تعطيل التكبير بالنقر المزدوج
+        });
 
-
-        view.on("key-down", function (event) {
-            event.stopPropagation();
+        view.on("pointer-move", function (event) {
+            event.stopPropagation(); // منع التحريك بالإصبع أثناء اللمس
         });
 
         view.on("pointer-down", function (event) {
             if (event.pointers.length > 1) {
-                event.stopPropagation(); // تعطيل اللمس المتعدد
+                event.stopPropagation(); // منع التكبير باللمس المتعدد
             }
         });
     }
