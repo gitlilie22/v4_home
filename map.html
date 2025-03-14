@@ -5,7 +5,10 @@
 
     <title>Disable all view navigation | Sample | ArcGIS Maps SDK for JavaScript 4.31</title>
 <body>
-        
+  <div id="rotate-message">
+    🔄 **يرجى تدوير الجهاز إلى الوضع الأفقي لاستخدام الخريطة!**
+</div>
+
     <div class="navbar">
       <a href="#" class="icon" id="expanding-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 1V5C14 5.55228 13.5523 6 13 6H9C8.44772 6 8 5.55228 8 5V1C8 0.447715 8.44772 0 9 0L13 0C13.5523 0 14 0.447715 14 1Z" fill="#C0C9DB"></path>
@@ -67,6 +70,31 @@
 
     <style>
 
+@media (orientation: portrait) {
+    #viewDiv {
+        display: none; /* إخفاء الخريطة عند الوضع الرأسي */
+    }
+
+    #rotate-message {
+        display: flex !important;
+    }
+}
+
+#rotate-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
 
       html,
   
@@ -74,7 +102,7 @@
       #viewDiv {
         padding: 0;
         margin: 0;position: fixed;
-        height: 100%;
+        height: 100%;display: contents;
         width: 100%;
       }.navbar {position: fixed;
     background-color: #333;z-index: 112;
@@ -223,29 +251,26 @@ padding: 5px;
     border: solid rebeccapurple;
 }.esri-view-height-less-than-medium .esri-popup__main-container {
     max-height: 300px; border-radius: 3px;
-}.navbar {position: fixed;
-    background-color: #333;z-index: 2;
-    padding: 10px;
-    color: #fff;
-    text-align: center; width: 3%; right: 5%;bottom:5%;
 }
 @media(max-width:700px){
-  .fullscreen {width: calc(10%);
-    height: calc(6%);
+  .fullscreen {width: calc(4%);
+    height: calc(7%);
 }.loc{
-    width: calc(24%);    top: calc(13%);
+    width: calc(15%);    top: calc(13%);
 }
+.navbar{width: 2%;}
     .topnav {    top: 1%;
     position: absolute;
     right: 0.5%;
     border-radius: 0.2cm;
     overflow: hidden;
     width: 94%;
-    background-color: #333;}.navbar .icon {
+    background-color: #333;}
+    .navbar .icon {
     color: #ffffff; 
     text-decoration: none;
     font-size: 20px;position: relative;
-    cursor: pointer;left: -22%;top:-5%;z-index: 25;
+    cursor: pointer;left: -10%;top:-5%;z-index: 25;
 }
     .topnav {    top: 1%;
     position: absolute;
@@ -275,21 +300,22 @@ padding: 5px;
 <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/dark/main.css" />
 <script src="https://js.arcgis.com/4.31/"></script>
 
-    <script> var elem = document.documentElement;
+    <script>
+     var elem = document.documentElement;
       function openFullscreen() {
         if (elem.requestFullscreen) {
           elem.requestFullscreen();
         } else document.exitFullscreen /* Safari */
           document.webkitExitFullscreen();}
-      require(["esri/WebScene", "esri/views/SceneView"], (WebScene, SceneView) => {
-        const map = new WebScene({
+      require(["esri/WebMap", "esri/views/MapView"], (WebMap, MapView) => {
+        const map = new WebMap({
           portalItem: {
             // autocasts as new PortalItem()
-            id: "021fc8c26fd8455a9a57063e1658136e"
+            id: "c9e5a7c4aa984f7fb89fddb61cd03b5a"
           }
         });
 
-        const view = new SceneView({
+        const view = new MapView({
           container: "viewDiv",
           map: map, navigation: {
         mouseWheelZoomEnabled: false,
@@ -300,12 +326,20 @@ padding: 5px;
           },
           constraints: {
             
-      minZoom: 18,       // الحد الأدنى للتكبير (إذا لزم الأمر)
         // الحد الأقصى للتكبير (إذا لزم الأمر)
       rotationEnabled: false // تعطيل الدوران
           },
    
         });
+
+        if (window.innerWidth <= 700) {  
+        view.zoom = 17; // تكبير أكثر عند فتح الخريطة على الهاتف
+
+        // ضبط الموقع الافتراضي على منطقة معينة (اختياري)
+    } else {
+        view.zoom = 18; // مستوى التكبير الافتراضي على الكمبيوتر
+    }
+
         view.ui.components = ["attribution"]; // ترك فقط حقوق النشر أو يمكنك تعيينها كصفيف فارغ []
         view.on("drag", function (event) {
   event.stopPropagation(); // منع السحب
@@ -345,7 +379,22 @@ if (window.innerWidth <= 700) {
             // السماح بالنقر فقط
         
         });
+     
+      }
+    function checkOrientation() {
+    if (window.innerHeight > window.innerWidth) {
+        document.getElementById("rotate-message").style.display = "flex"; // عرض رسالة الدوران
+        document.getElementById("viewDiv").style.display = "none"; // إخفاء الخريطة
+    } else {
+        document.getElementById("rotate-message").style.display = "none"; // إخفاء رسالة الدوران
+        document.getElementById("viewDiv").style.display = "flex"; // عرض الخريطة
     }
+}
+
+// فحص الاتجاه عند تحميل الصفحة وتغييره عند التدوير
+window.addEventListener("load", checkOrientation);
+window.addEventListener("resize", checkOrientation);
+
 document.getElementById('expanding-icon').addEventListener('click', function() {
 var expandedMenu = document.getElementById('expanded-menu')
 expandedMenu.classList.toggle('expanded');
