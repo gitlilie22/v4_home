@@ -306,6 +306,29 @@ view.on("double-click", function (event) {
 view.on("key-down", function (event) {
   event.stopPropagation(); // تعطيل التفاعل من لوحة المفاتيح
 });
+if (window.innerWidth <= 700) {
+        view.on("drag", function (event) {
+            event.stopPropagation();
+        });
+
+        view.on("mouse-wheel", function (event) {
+            event.stopPropagation();
+        });
+
+        view.on("double-click", function (event) {
+            event.stopPropagation();
+        });
+
+        view.on("key-down", function (event) {
+            event.stopPropagation();
+        });
+
+        view.on("pointer-down", function (event) {
+            if (event.pointers.length > 1) {
+                event.stopPropagation(); // تعطيل اللمس المتعدد
+            }
+        });
+    }
 document.getElementById('expanding-icon').addEventListener('click', function() {
 var expandedMenu = document.getElementById('expanded-menu')
 expandedMenu.classList.toggle('expanded');
