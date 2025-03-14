@@ -254,7 +254,21 @@ padding: 5px;
     overflow: hidden;
     width: 94%;
     background-color: #333;}
-    .esri-ui .esri-popup {display: contents;
+    .esri-ui .esri-popup {
+        display: block !important;  /* ضمان ظهور الـ popup */
+        position: absolute !important;
+        bottom: 10px !important;  /* ضبط مكان الظهور */
+        left: 50% !important;
+        transform: translateX(-50%);
+        width: 90% !important;
+        max-height: 300px !important;
+        overflow-y: auto !important;
+        z-index: 1000 !important;
+    }
+
+    .esri-popup__main-container {
+        max-height: 250px !important;
+        overflow-y: auto !important;
     }}
     </style>
 
@@ -326,13 +340,10 @@ if (window.innerWidth <= 700) {
         view.on("key-down", function (event) {
             event.stopPropagation();
         });
-        view.on("pointer-down", (event) => {
-            if (event.pointers.length > 1) {
-                event.stopPropagation(); // منع التكبير بإصبعين (Pinch Zoom)
-            }
+ 
             view.on("pointer-up", (event) => {
             // السماح بالنقر فقط
-        });
+        
         });
     }
 document.getElementById('expanding-icon').addEventListener('click', function() {
