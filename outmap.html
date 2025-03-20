@@ -49,29 +49,10 @@
     height: 110%;
     z-index: 0;
     position: relative;">
-    <div id="wadi" style="cursor: pointer;"><p style="    z-index: 111;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        border-radius: 0.7cm;
-        text-align: center;
-        padding-top: 1%;
-        padding-bottom: 1%;
-        padding-left: 1%;
-        padding-right: 1%;
-        background-color: #fff;
-        position: absolute;
-        top: 40%;
-        right: 18.5%;">V4</p>
-        <p style="    position: absolute;
-        top: 41.5%;
-        right: 19%;
-        z-index: 111;
-        color: #ffffff;
-        font-size: 35px;
-        rotate: 0deg;">&#129175;</p>
+    <div  id="v4"><p >V4</p>
     </div>
     <div>
-        <p id="wadi-caption" style="color: rgb(238, 0, 0); background-color: #03030375;display: none; cursor: default; border-radius: 0.2cm;
-    position: fixed;font-size: x-small; top: 52%;right: 12%;padding-top: 0.7%;padding-bottom:0.7% ; padding-left: 0.7%;padding-right:0.7%;">availble num</p>
+        <p>availble num</p>
      
     </div>
     
@@ -14048,7 +14029,20 @@
 }.loc{
     width: calc(24%);    top: calc(13%);
 }
-    .topnav {    top: 1%;
+#v4{display: block; cursor: pointer;}
+#v4 p{  z-index: 111;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        border-radius: 0.7cm;
+        text-align: center;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left: 1%;
+        padding-right: 1%;
+        background-color: #fff;
+        position: absolute;
+        top: 42%;
+        right: 14.5%;}
+  .topnav {    top: 1%;
     position: absolute;
     right: 0.5%;
     border-radius: 0.2cm;
@@ -14086,7 +14080,6 @@ height: 14px;width: 14px;    margin-right: 2%;
 margin-left: -4%;
 }
 
-
 .topnav button:hover {
   background-color: #000000;
   color: rgb(255, 255, 255);
@@ -14102,7 +14095,6 @@ margin-left: -4%;
 #path {position: fixed;z-index: 3;bottom: 65%;right: 28%; cursor: pointer;
    
 }
-
 .icon {
     color: #ffffff; 
     text-decoration: none;
@@ -14194,20 +14186,16 @@ document.querySelector('.navbar');
 });
 
 
-document.getElementById('wadi').addEventListener('mouseover', function() {
+document.getElementById('v4').addEventListener('mouseover', function() {
 var expandedMenu5 = document.querySelector('.svg').style.opacity="50%";
 var expandedMenu5 = document.querySelector('body').style.backgroundColor="black";
 })
-document.getElementById('wadi').addEventListener('mouseout', function() {
+document.getElementById('v4').addEventListener('mouseout', function() {
 var expandedMenu5 = document.querySelector('.svg').style.opacity="100%";
 
 })
 
 
-document.getElementById('wadi').addEventListener('mouseout', function() {
-var expandedMenu5 = document.getElementById('wadi-caption').style.display="none";
-
-});
 document.getElementById('education_icon').addEventListener('click', function() {
 if (education.style.display === "flex") {
     education.style.opacity = "0%";
