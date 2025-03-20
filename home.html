@@ -13,13 +13,12 @@
 
 <div id="nav_bar" >
      <p>V</p><p>4</p>
-<button>V4 Map</button><a href="#aboutme" id="nav_about" >About Us</a>
+<button onclick="window.location.href='https://gitlilie22.github.io/v4_home/map.html';">V4 Map</button><a href="#aboutme" id="nav_about" >About Us</a>
 <a href="https://gitlilie22.github.io/v4_home/data.html" id="nav_data">Data</a> 
  <a id="nav_home" style="background-color: rgba(255, 246, 246, 0);border-bottom: solid 2px;color: #793aff;">Home</a></div>
   <div id="nav_bar_mobile" class="nav_bar_mobile">
-<a id="nav_home" style=" background-color: rgb(131, 131, 131);">Home</a> <a href="https://gitlilie22.github.io/v4_home/data.html" id="nav_data">Data</a> <a id="nav_about">V4 Map</a>
+<a id="nav_home" style=" background-color: rgb(131, 131, 131);">Home</a> <a href="https://gitlilie22.github.io/v4_home/data.html" id="nav_data">Data</a> <a href="https://gitlilie22.github.io/v4_home/map.html" id="nav_about">V4 Map</a>
   </div>
-
 
 
     <div id="loading"><h1 style="    position: fixed;
@@ -27,16 +26,10 @@
       color: white;-webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));">Waiting</h1>
       <div class="spinner"><span></span><span></span></div>
   </div>
-
  
-
-
 
    <div class="section1cover" id="section1cover">
 
-  <video class="videov4" autoplay muted style="height: 100%;width:100% ;">
-    <source class="videov4" src="https://gitlilie22.github.io/v4_home/v4.mp4" type="video/mp4">
-  </video>
   <video class="video" autoplay muted controls>
     <source src="https://gitlilie22.github.io/v4_home/video.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -62,15 +55,15 @@
       <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>&nbsp;&nbsp;shahd5041@gmail.com</p>
     </div>
     <div class="contactus_right">
-      <form class="contactus_form">
+      <form class="contactus_form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
         <label>Name</label>
-        <input type="text" name="Name" required=""placeholder="Enter Your Name">
+        <input type="text" name="name" placeholder="Enter Your Name">
         <label>Email</label>  
-         <input type="tel" name="Email" required=""placeholder="Enter Your Email">
+         <input type="tel" name="email" placeholder="Enter Your Email">
         <label>Phone</label>
-        <input type="text" name="Phone" required=""placeholder="Enter Your Phone">
+        <input type="text" name="phone" placeholder="Enter Your Phone">
         <label>Message</label>
-        <input style="height: 80px;" type="text" name="Message" required=""placeholder="Enter Your Message">
+        <input style="height: 80px;" type="text" name="message" placeholder="Enter Your Message">
       <button type="submit" >Send</button>
       </form>
   </div>
@@ -89,20 +82,20 @@
      <p >
     يعتبر مؤشر الرطوبة NDMI حساسًا لمستويات الرطوبة في الغطاء النباتي. يتم استخدامه لرصد حالات الجفاف وكذلك مراقبة مستويات الوقود في المناطق المعرضة للحرائق. ويستخدم نطاقات NIR وSWIR لإنشاء نسبة مصممة لتخفيف الإضاءة والتأثيرات الجوية.
   </p>
-  <img src="C:\Users\elsay\Downloads/380416766_689093416600487_5716603312853413193_n.jpg" alt="">
+  <img src="https://gitlilie22.github.io/v4_home/changedetect.gif" alt="">
    </a>
     
  <a > 
    <p >
    يعتبر مؤشر الرطوبة NDMI حساسًا لمستويات الرطوبة في الغطاء النباتي. يتم استخدامه لرصد حالات الجفاف وكذلك مراقبة مستويات الوقود في المناطق المعرضة للحرائق. ويستخدم نطاقات NIR وSWIR لإنشاء نسبة مصممة لتخفيف الإضاءة والتأثيرات الجوية.
   </p>
-   <img src="C:\Users\elsay\Downloads/380416766_689093416600487_5716603312853413193_n.jpg" alt="">
+   <img src="https://gitlilie22.github.io/v4_home/ndvi.gif" alt="">
  </a>
    
 <a >
   <p >يعتبر مؤشر الرطوبة NDMI حساسًا لمستويات الرطوبة في الغطاء النباتي. يتم استخدامه لرصد حالات الجفاف وكذلك مراقبة مستويات الوقود في المناطق المعرضة للحرائق. ويستخدم نطاقات NIR وSWIR لإنشاء نسبة مصممة لتخفيف الإضاءة والتأثيرات الجوية.
 </p>
-<img src="C:\Users\elsay\Downloads/380416766_689093416600487_5716603312853413193_n.jpg" alt="">
+<img src="https://gitlilie22.github.io/v4_home/ndmi.gif" alt="">
 </a>
      
  <a >
@@ -114,7 +107,7 @@
    <a >
       <p >يعتبر مؤشر الرطوبة NDMI حساسًا لمستويات الرطوبة في الغطاء النباتي. يتم استخدامه لرصد حالات الجفاف وكذلك مراقبة مستويات الوقود في المناطق المعرضة للحرائق. ويستخدم نطاقات NIR وSWIR لإنشاء نسبة مصممة لتخفيف الإضاءة والتأثيرات الجوية.
 </p>
-<img src="C:\Users\elsay\Downloads/380416766_689093416600487_5716603312853413193_n.jpg" alt="">
+<img src="https://gitlilie22.github.io/v4_home/changedetect.gif" alt="">
 </a>
      
    <a >
@@ -126,8 +119,8 @@
    </div>
    
  
-  <div class="buttons_anal"><button id="ndvi_bt" class="active">Ndvi</button>
-    <button id="ndbi_bt">Ndbi</button>
+  <div class="buttons_anal"><button id="changedetection_bt" class="active">Changedetection</button>
+    <button id="ndvi_bt">Ndvi</button>
     <button id="ndmi_bt">Ndmi</button>
     <button id="lst_bt">Lst</button>
     <button id="classification_bt">Classification</button>
@@ -152,6 +145,11 @@
 </div>
 
 </div>
+ <div class="our_location" id="our_location">
+    <img src="https://gitlilie22.github.io/v4_home/out.jpeg" style="width: 100%;
+    height: 100%;
+    position: absolute;z-index: 0;" alt="">
+    <iframe src="https://gitlilie22.github.io/v4_home/outmap.html" name="iframe_a" height="500px" width="40%" title="Iframe Example"></iframe> </div>
 <div class="aboutme" id="aboutme">
   <div class="aboutmesection"><h2>About <span>Us</span></h2>
     <div class="image_section1">
@@ -175,11 +173,7 @@
   <a href=""><img src="https://gitlilie22.github.io/v4_home/images2.png" alt=""><p>Mohamed Elsayed</p></a>
 </div>
    </div>
-   <div class="our_location" id="our_location">
-    <img src="https://gitlilie22.github.io/v4_home/out.jpeg" style="width: 100%;
-    height: 100%;
-    position: absolute;z-index: 0;" alt="">
-    <iframe src="https://mo015.github.io/jos/Layout.html" name="iframe_a" height="500px" width="40%" title="Iframe Example"></iframe> </div>
+  
 
    </div>
 
@@ -355,7 +349,7 @@ div ::-webkit-scrollbar-corner{background-color: #000000;}
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    animation-name: slideUp5  ;
+    animation-name: slideUp5  ;animation: ease-in-out;
     animation-duration: 2s;transition: 2s;
     visibility: visible;}
     @keyframes slideUp5 {
@@ -368,6 +362,10 @@ div ::-webkit-scrollbar-corner{background-color: #000000;}
     transform: translateY(0%);
   }
 }
+.ourwork_section #ourwork_contenier a.active{
+  display: block;
+}
+
 .ourwork_section #ourwork_contenier a p{    color: white;
 line-height: 30px;
 position: relative;
@@ -376,7 +374,6 @@ top: 0px;
   width: 35%;float: left;    text-align: -webkit-center;
 }
   
-
 
 #nav_bar {       
     position: fixed;
@@ -556,29 +553,20 @@ top: 0px;
 }
 .our_location {          width: 100%;
     position: relative;
-    height: 65%;
+    height: 38%;
     top: 15%;
     display: flex;
     background: blue;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap;top: -1%;
     flex-direction: row;
     align-content: center;
     justify-content: center;
     align-items: center;}
 .our_location iframe{       height: 91%;
-    z-index: 1;  visibility: visible;    opacity: 95%;
-    width: 90%;animation: slideUp6 2s;
+    z-index: 1;     opacity: 95%;
+    width: 90%;
 }
-@keyframes slideUp6 {
-  0% {
-    
-    transform: skew(196deg, 187deg); }
-  
-  100% {
-   
-    transform: skew(0deg,0deg);
-  }
-}
+
 
 .buttons_anal{        z-index: 11;
     position: relative;
@@ -719,6 +707,12 @@ background-color: rgba(167, 10, 188, 0.309);
 }.buttons_anal button{
   width: 33%;
 }
+.our_location {height:36%;
+
+} .our_location iframe {
+  height: 88%;}
+  .aboutme {min-height: 43%;
+  }
 }
 .popup-overlay{
   position: fixed;background-color: rgb(167, 0, 0); left: 0;top: 0; width: 100%;height: 100%;
@@ -887,8 +881,7 @@ top: 50px;
       .aboutme
     {width: 100%;
     position: relative;    background-color: #0b1133;
-
-    height: 51%;    top: -2%;
+    height: 36%;      top: -2%;
 background-image: url(https://gitlilie22.github.io/v4_home/esri4.png);
       
     }
@@ -968,7 +961,7 @@ background-image: url(https://gitlilie22.github.io/v4_home/esri4.png);
 </style>
 </body>
 <script>
-  document.querySelector('#ndvi_bt').addEventListener('click', function() {
+  document.querySelector('#changedetection_bt').addEventListener('click', function() {
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(2)').classList.remove("active"); 
    var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:first-child').classList.add("active");
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(3)').classList.remove("active");
@@ -976,7 +969,7 @@ background-image: url(https://gitlilie22.github.io/v4_home/esri4.png);
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(5)').classList.remove("active");
     var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(6)').classList.remove("active");
    });
-   document.querySelector('#ndbi_bt').addEventListener('click', function() {
+   document.querySelector('#ndvi_bt').addEventListener('click', function() {
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(2)').classList.add("active"); 
    var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:first-child').classList.remove("active");
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(3)').classList.remove("active");
@@ -1025,7 +1018,7 @@ window.onscroll = function()
     document.querySelector(".ourwork_section #ourwork_contenier a").style.display='flex';
   }
   else{ document.querySelector(".ourwork_section #ourwork_contenier a").style.display = "none";}
-  if (window.scrollY >2700) {
+  if (window.scrollY >2200) {
     document.querySelector(".our_location iframe").style.display='block';
   }
   else{ document.querySelector(".our_location iframe").style.display = "none";}
