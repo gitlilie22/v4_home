@@ -120,14 +120,13 @@
    
  
   <div class="buttons_anal"><button id="changedetection_bt" class="active">Changedetection</button>
-    <button id="ndvi_bt">Ndvi</button>
-    <button id="ndmi_bt">Ndmi</button>
-    <button id="lst_bt">Lst</button>
-    <button id="classification_bt">Classification</button>
-    <button id="changedetection_bt">Changedetection</button></div>
+    <button id="lst_bt">3D Model</button>
+    <button id="classification_bt">Cad</button>
+    <button id="changedetection_bt">Changedetection</button><button id="ndvi_bt">Ndvi</button>
+    <button id="ndmi_bt">Ndmi</button></div>
 </div>
 
-<div class="my_service" id="my_service">
+<div class="my_service">
   <h2>Our <span>Service</span></h2>
 <div class="service_box">
   <div>
@@ -146,7 +145,11 @@
 
 </div>
  <div class="our_location" id="our_location">
-    <img src="https://gitlilie22.github.io/v4_home/out.jpeg" style="width: 100%;
+  <h2 style="    color: white;
+  z-index: 5;
+  position: absolute;
+  top: -1%;">V4 Location</h2>
+    <img src="https://gitlilie22.github.io/v4_home/esri4.jpg" style="width: 100%;
     height: 100%;
     position: absolute;z-index: 0;" alt="">
     <iframe src="https://gitlilie22.github.io/v4_home/outmap.html" name="iframe_a" height="500px" width="40%" title="Iframe Example"></iframe> </div>
@@ -176,9 +179,18 @@
   
 
    </div>
-
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
 <style>
-  .scroller{  
+        canvas {     display: block;
+    pointer-events: all;
+    top: -113%;
+    z-index: 0;
+    width: 100%;
+    position: relative;    max-width: 100%;
+    min-height: 37%;
+    touch-action: none; }
+        .scroller{  
     top: 0;
     left: 0;z-index: 11111;
     background: blue;
@@ -563,7 +575,7 @@ top: 0px;
     justify-content: center;
     align-items: center;}
 .our_location iframe{       height: 91%;
-    z-index: 1;     opacity: 95%;
+    z-index: 1;     opacity: 85%;
     width: 90%;
 }
 
@@ -598,7 +610,10 @@ top: 0px;
 background-color: rgba(167, 10, 188, 0.309);
   }
 
-@media(max-width:700px){
+@media(max-width:700px){canvas{
+  min-height: 49%;
+  top: -130%;
+}
   .nav-icon span{display: block; }
   .nav-icon {top:2%; display: block; position: fixed;z-index: 200; right: 5%;}
    .contactus_right{    
@@ -803,9 +818,9 @@ border-radius: 50%;
 }
 
 .my_service{
-  top: -1%;
-background-image: url(https://gitlilie22.github.io/v4_home/esri4.jpg);   
- position: relative;
+    pointer-events: none;
+    top: -1%;
+ position: relative;z-index: 1;
 }
     .my_service h2{text-align: center;
 top: 50px;
@@ -854,6 +869,7 @@ top: 50px;
 
 }
 .service_box div div{    padding: 3%;
+    pointer-events: all;
     width: 98%;
     border-radius: 6%;text-align: center;
     height: 150%;
@@ -961,7 +977,9 @@ background-image: url(https://gitlilie22.github.io/v4_home/esri4.png);
 </style>
 </body>
 <script>
-  document.querySelector('#changedetection_bt').addEventListener('click', function() {
+
+
+document.querySelector('#changedetection_bt').addEventListener('click', function() {
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(2)').classList.remove("active"); 
    var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:first-child').classList.add("active");
   var sliderscroll1 = document.querySelector('.ourwork_section #ourwork_contenier a:nth-child(3)').classList.remove("active");
@@ -1147,5 +1165,75 @@ setInterval(()=>{
 
 </script>
 
+<script>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
 
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 1.05;
+  controls.rotateSpeed = 0.5;
+
+  const particles = 90000;
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particles * 3);
+  const colors = new Float32Array(particles * 3);
+
+  const numArms = 4;
+  const armSpread = 3.6;
+
+  for (let i = 0; i < particles; i++) {
+      let armIndex = i % numArms;
+      let angle = (i / particles) * Math.PI * 2 * numArms + (Math.random() - 3.5) * armSpread;
+      let radius = Math.pow(i / particles, 0.7) * 300;
+      let x = radius * Math.cos(angle);
+      let y = (Math.random() - 0.5) * 25;
+      let z = radius * Math.sin(angle);
+      
+      positions[i * 3] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
+      
+      let colorFactor = radius / 100;
+      let color;
+      if (colorFactor < 0.3) {
+          color = new THREE.Color(`hsl(${30 + colorFactor * 100}, 100%, 50%)`); // برتقالي إلى أصفر
+      } else if (colorFactor < 0.6) {
+          color = new THREE.Color(`hsl(${250 - colorFactor * 150}, 100%, 60%)`); // وردي إلى بنفسجي
+      } else {
+          color = new THREE.Color(`hsl(${220 + colorFactor * 20}, 100%, 70%)`); // بنفسجي إلى أزرق فاتح
+      }
+      
+      colors[i * 3] = color.r;
+      colors[i * 3 + 1] = color.g;
+      colors[i * 3 + 2] = color.b;
+  }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  
+  const material = new THREE.PointsMaterial({ size: 0.6, vertexColors: true });
+  const galaxy = new THREE.Points(geometry, material);
+  scene.add(galaxy);
+
+  camera.position.set(0, 75, 300);
+  camera.lookAt(0, 0, 0);
+
+  function animate() {
+      requestAnimationFrame(animate);
+      galaxy.rotation.y += 0.001;
+      controls.update();
+      renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+  });
+</script>
 <html>
