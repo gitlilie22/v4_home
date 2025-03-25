@@ -121,10 +121,88 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
+        }@import url("https://fonts.googleapis.com/css?family=Nunito:400,900|Montserrat|Roboto");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#vantajs-bg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.container2 {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container2 h2 {
+  font-size: 4em;
+  font-family: "Montserrat", sans-serif;
+  color: #FFFFFF;
+  text-shadow: 1px 1px #D37E86;
+}
+.container2 p {
+  font-size: 1.5em;
+  font-family: "Nunito Sans", sans-serif;
+  color: #FFFFFF;
+  text-shadow: 1px 1px #070707;
+  margin-bottom: 0.5rem;
+}
+.container2 select {
+  width: 200px;
+}
+
+footer {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  text-align: right;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+  padding: 0.5rem;
+}
+footer p {
+  border: none;
+  padding: 0;
+}
+footer p strong {
+  font-size: 2em;
+  text-decoration: none;
+}
+footer p strong:hover {
+  color: #cd6b74;
+  transition: all 0.4s ease-in-out;
+  font-weight: 1500;
+  font-size: 2em;
+  cursor: pointer;
+}
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+}
+footer a:hover {
+  color: #D37E86;
+  font-weight: 900;
+  font-size: 1.1em;
+}
     </style>
 </head>
-<body>
+<div id="vantajs-bg"></div>
+<body  class="container2"class="form-select" id="effect">
     <div class="floating-bubbles"></div>
     <div class="stars"></div>
     <div class="buildings"></div>
@@ -138,6 +216,45 @@
         <p>استمتع بتجربة فريدة على موقعنا</p>
         <a href="http://v4.web1337.net/home.php" class="btn">ابدأ الآن</a>
     </div>
+
+    
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds2.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js'></script><script  src="./script.js"></script>
+  
+  </body>
+    <script>var bgEffects = {
+        "0":VANTA.BIRDS,
+        "1":VANTA.CLOUDS,
+        "2":VANTA.CLOUDS2,
+        "3":VANTA.FOG,
+        "4":VANTA.WAVES,
+        "5":VANTA.DOTS,
+        "6":VANTA.HALO
+      }
+      
+      
+      document.getElementById("effect").addEventListener("change", ()=> run());
+      
+      function run(){
+        const effectID = document.getElementById("effect").value=0;
+        bgEffects[effectID]({
+          el: document.getElementById("vantajs-bg"),
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: true,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00
+        });
+      }
+      run();</script>
     <script>
         function createElements(className, count, sizeMin, sizeMax, durationMin, durationMax) {
             const container = document.querySelector(`.${className}`);
