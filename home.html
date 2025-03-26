@@ -1219,16 +1219,16 @@ setInterval(()=>{
   const galaxy = new THREE.Points(geometry, material);
   scene.add(galaxy);
 
-  camera.position.set(0, 75, 300);
-  camera.lookAt(0, 0, 0);
+  camera.position.set(2, 8, 100);
+        camera.lookAt(0, 0, 0);
 
-  function animate() {
-      requestAnimationFrame(animate);
-      galaxy.rotation.y += 0.001;
-      controls.update();
-      renderer.render(scene, camera);
-  }
-  animate();
+        function animate() {
+            requestAnimationFrame(animate);
+            galaxy.rotation.y += 0.008;
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
 
   window.addEventListener('resize', () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
