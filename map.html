@@ -1,9 +1,10 @@
-<html lang="en">
+    <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-<title>V4 Map</title><link rel="icon" type="image/png" href="https://gitlilie22.github.io/v4_home/v4_logo.png">
-   
+
+  <title>V4 Map</title><link rel="icon" type="image/png" href="https://gitlilie22.github.io/v4_home/v4_logo.png">
+
 <body>
   <div id="rotate-message">
     🔄 **يرجى تدوير الجهاز إلى الوضع الأفقي لاستخدام الخريطة!**
@@ -19,7 +20,7 @@
   
       <div class="expanded-menu" id="expanded-menu">
 <h3>Share</h3>           
-<a href="#"id="whatsapp-share" target="_blank" style="color: #f2f2f2; text-decoration: none;"><svg fill="#000000" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+<a onclick="shareOnWhatsApp(); return false;" id="whatsapp-share" target="_blank" style="color: #f2f2f2; text-decoration: none; cursor: pointer;"><svg fill="#000000" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
   viewBox="0 0 308 308" xml:space="preserve">
 <g id="XMLID_468_">
  <path id="XMLID_469_" d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
@@ -41,11 +42,11 @@
      C276.546,215.678,222.799,268.994,156.734,268.994z"/>
 </g>
 </svg>Whatsapp</a>
-         <br> <a href="#" id="facebook-share" target="_blank" style="color: #f2f2f2; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="20px" height="20px">    <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"/></svg>
+         <br> <a onclick="shareOnFacebook(); return false;" id="facebook-share" target="_blank" style="color: #f2f2f2; text-decoration: none; cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="20px" height="20px">    <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"/></svg>
           Facebook</a>
-  <br><a href="https://www.instagram.com/" target="_blank" style="color: #f2f2f2; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="20px" height="20px">    <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"/></svg>
+  <br><a  onclick="shareOnInstagram(); return false;" target="_blank" style="color: #f2f2f2; text-decoration: none; cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="20px" height="20px">    <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"/></svg>
       Instagram </a>
-  <br><a href="#" id="twitter-share" target="_blank" style="color: #f2f2f2; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="20px" height="20px"><path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"/></svg>
+  <br><a onclick="shareOnTwitter(); return false;" id="twitter-share" target="_blank" style="color: #f2f2f2; text-decoration: none; cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="20px" height="20px"><path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"/></svg>
       twitter </a>
       </div>
   </div > 
@@ -153,7 +154,7 @@
     z-index: 5}
     
     .fullscreen{width: calc(3%);
-    height: calc(5%);
+    height: calc(5%);background-repeat: round;
 background-image:url(https://gitlilie22.github.io/v4_home/fullsc.png) ;    
 padding: 5px;
     top: 3%;
@@ -227,16 +228,41 @@ padding: 5px;
     bottom: 0;
     left: 0;
     right: 0;
-}.esri-widget *, .esri-widget *:before, .esri-widget *:after {
-    box-sizing: inherit;
-    background: #19022f;    border-radius: 3px;
-
+}.esri-feature__content-element{
+    padding: 0 7px;    margin-bottom: 0px !important; 
+}
+::-webkit-scrollbar{width: 10px; }
+::-webkit-scrollbar-track{background-color: #ffffff00;}
+::-webkit-scrollbar-thumb{
+  background-color: rgba(14, 14, 11, 0.445);
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(14, 14, 11);border-radius: 20px;
+}::-webkit-scrollbar-corner{background-color: #000000;}
+div ::-webkit-scrollbar{width: 5px; }
+div ::-webkit-scrollbar-track{    background: repeating-linear-gradient(60deg,#797979 , rgb(253 253 253), rgb(109 109 109));}
+div ::-webkit-scrollbar-thumb{
+  background-color: rgba(253, 152, 0, 0.473);
+}
+div ::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(255, 51, 0);border-radius: 20px;
+}
+div ::-webkit-scrollbar-corner{background-color: #000000;}
+canvas{    width:100% !important;
+    height: 100% !important;}
+.esri-widget *, .esri-widget *:before, .esri-widget *:after {
+    box-sizing: border-box;
+    background: #073901f0;
+    filter: drop-shadow(2px 4px 6px black);
+    border-radius: 3px;
 }.esri-ui .esri-popup {
     pointer-events: none;
-    position: absolute;inset: 95px 440px auto auto;
+    position: absolute;
     z-index: 1;
-    display: flex;opacity: 94%;
+    display: flex;
+    inset: unset !important;
     flex-flow: column nowrap;
+    bottom: 0% !important;    overflow: overlay;
 }.esri-widget {
     box-sizing: border-box;
     color: #02a8ea;
@@ -301,7 +327,28 @@ padding: 5px;
 <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/dark/main.css" />
 <script src="https://js.arcgis.com/4.31/"></script>
 
-    <script>
+    <script>function shareOnFacebook() {
+        let url = encodeURIComponent(window.location.href);
+        let shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        window.open(shareUrl, '_blank');
+    }function shareOnTwitter() {
+    let url = encodeURIComponent(window.location.href);
+    let text = encodeURIComponent(document.title);
+    let shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+    window.open(shareUrl, '_blank');
+}function shareOnWhatsApp() {
+    let url = encodeURIComponent(window.location.href);
+    let shareUrl = `https://api.whatsapp.com/send?text=${url}`;
+    window.open(shareUrl, '_blank');
+}
+function shareOnInstagram() {
+    let url = encodeURIComponent(window.location.href);
+    let message = "📌 تحقق من هذا الرابط: " + decodeURIComponent(url);
+    let shareUrl = `https://www.instagram.com/direct/inbox/`;
+
+    alert("لا يدعم إنستجرام المشاركة المباشرة، ولكن يمكنك نسخ الرابط وإرساله عبر إنستجرام دايركت.");
+    window.open(shareUrl, '_blank');
+}
     var elem = document.documentElement;
       function openFullscreen() {
         if (elem.requestFullscreen) {
@@ -357,27 +404,21 @@ view.on("double-click", function (event) {
 view.on("key-down", function (event) {
   event.stopPropagation(); // تعطيل التفاعل من لوحة المفاتيح
 });
-if (window.innerWidth <= 700) {
+if (window.innerWidth <= 990) {
         view.on("drag", function (event) {
-            event.stopPropagation();
         });
 
         view.on("mouse-wheel", function (event) {
-            event.stopPropagation();
         });
 
         view.on("double-click", function (event) {
-            event.stopPropagation();
         });
-        view.on("pointer-move", (event) => {
-            event.stopPropagation(); // منع تحريك الخريطة بالإصبع أثناء اللمس
-        });
+     
         view.on("key-down", function (event) {
-            event.stopPropagation();
         });
  
             view.on("pointer-up", (event) => {
-            // السماح بالنقر فقط
+            // السماح بالنقر فقط    
         
         });
      
